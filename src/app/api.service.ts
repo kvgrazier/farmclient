@@ -10,7 +10,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-//const apiUrl = '/api';
+// const apiUrl = '/api';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +41,13 @@ export class ApiService {
 
   getTest(): string {
     return 'Test';
+  }
+
+  getAccountPersonList(): Observable<any> {
+    console.log(API_URL);
+    return this.http.get(API_URL + '/accountpersonlist', httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
   }
   getTransactions(): Observable<any> {
     console.log(API_URL);
@@ -74,6 +81,8 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+
+
 }
 
 

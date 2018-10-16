@@ -67,9 +67,12 @@ const appRoutes: Routes = [
     component: AccountEditComponent,
     data: { title: 'Edit Account' }
   },
-  { path: '',
-    redirectTo: '/index',
-    pathMatch: 'full'
+  {
+    path: '',
+    component: IndexComponent,
+    data: { title: 'Home' }
+    // redirectTo: '/index',
+    // pathMatch: 'full'
   }
 ];
 @NgModule({

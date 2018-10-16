@@ -30,7 +30,7 @@ export class TransactionComponent implements OnInit {
 
 export class TransactionDataSource extends DataSource<any> {
   constructor(private api: ApiService) {
-    super()
+    super();
   }
   connect() {
     return this.api.getTransactions();
