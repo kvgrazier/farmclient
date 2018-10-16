@@ -24,6 +24,7 @@ import { AccountComponent } from './account/account.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
+import { IndexComponent } from './index/index.component';
 
 const appRoutes: Routes = [
   {
@@ -46,8 +47,28 @@ const appRoutes: Routes = [
     component: TransactionEditComponent,
     data: { title: 'Edit Transaction' }
   },
+  {
+    path: 'accounts',
+    component: AccountComponent,
+    data: { title: 'Account List' }
+  },
+  {
+    path: 'account-details/:id',
+    component: AccountDetailComponent,
+    data: { title: 'Account Details' }
+  },
+  {
+    path: 'account-create',
+    component: AccountCreateComponent,
+    data: { title: 'Create Account' }
+  },
+  {
+    path: 'account-edit/:id',
+    component: AccountEditComponent,
+    data: { title: 'Edit Account' }
+  },
   { path: '',
-    redirectTo: '/transactions',
+    redirectTo: '/index',
     pathMatch: 'full'
   }
 ];
@@ -61,7 +82,8 @@ const appRoutes: Routes = [
     AccountComponent,
     AccountCreateComponent,
     AccountDetailComponent,
-    AccountEditComponent
+    AccountEditComponent,
+    IndexComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
