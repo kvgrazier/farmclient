@@ -1,0 +1,44 @@
+<div class="button-row">
+    <a [routerLink]="" (click)="transactionDetails()">Transaction Details</a>
+  </div>
+<form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="TransactionID" formControlName="TransactionID"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!transactionForm.get('TransactionID').valid && transactionForm.get('TransactionID').touched">Please enter TransactionID</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="TransactionDate" formControlName="TransactionDate"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!transactionForm.get('TransactionDate').valid && transactionForm.get('TransactionDate').touched">Please enter TransactionDate</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="TransactionDescription" formControlName="TransactionDescription"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!transactionForm.get('TransactionDescription').valid && transactionForm.get('TransactionDescription').touched">Please enter TransactionDescription</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="AccountNumber" formControlName="AccountNumber"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!transactionForm.get('AccountNumber').valid && transactionForm.get('AccountNumber').touched">Please enter Account Number</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="AccountAmount" formControlName="AccountAmount"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!transactionForm.get('AccountAmount').valid && transactionForm.get('AccountAmount').touched">Please enter Account1Amount</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+      <button type="submit" [disabled]="!transactionForm.valid" class="btn btn-success">Submit</button>
+    <!-- <button type="submit" [disabled]="!transactionForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button> -->
+  </div>
+</form>

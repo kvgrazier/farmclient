@@ -1,0 +1,25 @@
+<div class="button-row">
+    <a [routerLink]="['/transactions']" >Transaction List</a>
+</div>
+<mat-card class="example-card">
+  <mat-card-content>
+    <dl>
+      <dt>TransactionID</dt>
+      <dd>{{transaction.TransactionID}}</dd>
+      <dt>TransactionDate:</dt>
+      <dd>{{transaction.TransactionDate | date}}</dd>
+      <dt>TransactionDescription:</dt>
+      <dd>{{transaction.TransactionDescription}}</dd>
+      <dt>AccountNumber:</dt>
+      <dd>{{transaction.AccountNumber}}</dd>
+      <dt>AccountAmount:</dt>
+      <dd>{{transaction.AccountAmount}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+  <a [routerLink]="['/transaction-edit', transaction._id]" style="padding: 0 0 0 1em;" >Edit</a>
+  <a [routerLink]="" (click)="deleteTransaction(transaction._id)" style="padding: 0 1em 0 1em;" >Delete</a>
+    <!-- <a mat-raised-button color="primary" [routerLink]="['/transaction-edit', transaction._id]"><mat-icon>edit</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="deleteTransaction(transaction._id)"><mat-icon>delete</mat-icon></a> -->
+  </mat-card-actions>
+</mat-card>
