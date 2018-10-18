@@ -2,11 +2,6 @@
     <a [routerLink]="['/transactions']" >Transaction List</a>
   </div>
 <form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
-
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Favorite food" value="Sushi">
-      </mat-form-field>
-
   <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionID" formControlName="TransactionID"
            [errorStateMatcher]="matcher">
@@ -28,7 +23,6 @@
       <span *ngIf="!transactionForm.get('TransactionDescription').valid && transactionForm.get('TransactionDescription').touched">Please enter TransactionDescription</span>
     </mat-error>
   </mat-form-field>
-  
   <mat-form-field class="example-full-width">
     <input matInput placeholder="AccountNumber" formControlName="AccountNumber"
            [errorStateMatcher]="matcher">
@@ -36,7 +30,6 @@
       <span *ngIf="!transactionForm.get('AccountNumber').valid && transactionForm.get('AccountNumber').touched">Please enter Account Number</span>
     </mat-error>
   </mat-form-field>
-
   <mat-form-field class="example-full-width">
     <input matInput placeholder="AccountAmount" formControlName="AccountAmount"
            [errorStateMatcher]="matcher">
