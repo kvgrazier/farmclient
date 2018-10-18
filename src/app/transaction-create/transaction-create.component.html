@@ -1,8 +1,12 @@
 <div class="button-row">
     <a [routerLink]="['/transactions']" >Transaction List</a>
-  <!-- <a mat-raised-button color="primary" [routerLink]="['/transactions']"><mat-icon>list</mat-icon></a> -->
-</div>
+  </div>
 <form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite food" value="Sushi">
+      </mat-form-field>
+
   <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionID" formControlName="TransactionID"
            [errorStateMatcher]="matcher">
@@ -24,21 +28,23 @@
       <span *ngIf="!transactionForm.get('TransactionDescription').valid && transactionForm.get('TransactionDescription').touched">Please enter TransactionDescription</span>
     </mat-error>
   </mat-form-field>
+  
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="AccountNumber" formControlName="AccountNumber"
-           [errorStateMatcher]="matcher"></textarea>
+    <input matInput placeholder="AccountNumber" formControlName="AccountNumber"
+           [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!transactionForm.get('AccountNumber').valid && transactionForm.get('AccountNumber').touched">Please enter Account Number</span>
     </mat-error>
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
     <input matInput placeholder="AccountAmount" formControlName="AccountAmount"
            [errorStateMatcher]="matcher">
     <mat-error>
-      <span *ngIf="!transactionForm.get('AccountAmount').valid && transactionForm.get('AccountAmount').touched">Please enter Account1Amount</span>
+      <span *ngIf="!transactionForm.get('AccountAmount').valid && transactionForm.get('AccountAmount').touched">Please enter Account Amount</span>
     </mat-error>
   </mat-form-field>
+
   <div class="button-row">
-    <button type="submit" [disabled]="!transactionForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
-  </div>
+       <button type="submit" [disabled]="!transactionForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>  </div>
 </form>

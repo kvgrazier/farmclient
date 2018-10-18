@@ -10,23 +10,23 @@ import { Observable } from 'rxjs';
 })
 
 export class HomeComponent implements OnInit {
-  accountpersons: any;
-  displayedColumns = ['person'];
-  dataSource = new AccountPersonDataSource(this.api);
+  persons: any;
+  // displayedColumns = ['person'];
+  dataSource = new PersonsDataSource(this.api);
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getAccountPersonList()
+    this.api.getPersonList()
       .subscribe(res => {
         console.log(res);
-        this.accountpersons = res;
+        this.persons = res;
       }, err => {
         console.log(err);
       });
     }}
 
-export class AccountPersonDataSource extends DataSource<any> {
+export class PersonsDataSource extends DataSource<any> {
   constructor(private api: ApiService) {super(); }
-  connect() {return this.api.getAccountPersonList(); }
+  connect() {return this.api.getPersonList(); }
   disconnect() {}}
 

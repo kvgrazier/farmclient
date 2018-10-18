@@ -43,7 +43,7 @@ export class ApiService {
     return 'Test';
   }
 
-  getAccountPersonList(): Observable<any> {
+  getPersonList(): Observable<any> {
     console.log(API_URL);
     return this.http.get(API_URL + '/accountpersonlist', httpOptions).pipe(
       map(this.extractData),

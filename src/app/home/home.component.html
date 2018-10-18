@@ -3,14 +3,29 @@
 </p>
 <form>
   This is bullshit
+
+  <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+    
 <!--   <mat-form-field>
-    <mat-select placeholder="person" [(ngModel)]="accountpersons" name="person">
-      <mat-option *ngFor="let person of accountpersons" [value]="person">
+    <mat-select placeholder="person" [(ngModel)]="persons" name="person">
+      <mat-option *ngFor="let person of persons" [value]="person">
         {{person}}
       </mat-option>
     </mat-select>
-  </mat-form-field> 
+  </mat-form-field>  -->
+
+<!--   <mat-form-field>
+      <mat-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
 
   <p> Selected value: {{person}} </p>
-  -->
+ 
 </form> 

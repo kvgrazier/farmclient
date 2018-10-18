@@ -14,18 +14,20 @@ import { AccountComponent } from './account/account.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
+import { HomeComponent } from './home/home.component';
 import {
+  MatListModule,
+  MatSelectModule,
   MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
+ // MatPaginatorModule,
+ // MatProgressSpinnerModule,
+//  MatSortModule,
   MatTableModule,
   MatIconModule,
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from '@angular/material';
-import { HomeComponent } from './home/home.component';
-  // import { RouterModule, Routes } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    // RouterModule.forRoot(appRoutes),
+    MatListModule,
+    MatSelectModule,
     AppRoutingModule,
     BrowserModule,
     FormsModule,
@@ -49,9 +52,9 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
+   // MatPaginatorModule,
+  //  MatSortModule,
+  //  MatProgressSpinnerModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
