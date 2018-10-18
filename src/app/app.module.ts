@@ -24,6 +24,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from '@angular/material';
+import { HomeComponent } from './home/home.component';
   // import { RouterModule, Routes } from '@angular/router';
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {
     AccountComponent,
     AccountCreateComponent,
     AccountDetailComponent,
-    AccountEditComponent
+    AccountEditComponent,
+    HomeComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes),

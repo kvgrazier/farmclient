@@ -8,10 +8,11 @@ import { AccountComponent } from './account/account.component';
 import { AccountCreateComponent } from './account-create/account-create.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/transactions', pathMatch: 'full'},
-   // ,{path: '', component: IndexComponent, data: { title: 'Home' }}
+  // {path: '', redirectTo: '/transactions', pathMatch: 'full'},
+  {path: '', component: HomeComponent, data: { title: 'Home' }},
   {path: 'transactions', component: TransactionComponent, data: { title: 'Transaction List' }},
   {path: 'transaction-details/:id', component: TransactionDetailComponent, data: { title: 'Transaction Details' }},
   {path: 'transaction-create', component: TransactionCreateComponent, data: { title: 'Create Transaction' }},
