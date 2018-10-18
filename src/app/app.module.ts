@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import { TransactionCreateComponent } from './transaction-create/transaction-create.component';
 import { TransactionEditComponent } from './transaction-edit/transaction-edit.component';
-import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UiModule } from './ui/ui.module';
+import { AccountComponent } from './account/account.component';
+import { AccountCreateComponent } from './account-create/account-create.component';
+import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { AccountEditComponent } from './account-edit/account-edit.component';
 import {
   MatInputModule,
   MatPaginatorModule,
@@ -19,62 +24,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from '@angular/material';
-import { UiModule } from './ui/ui.module';
-import { AccountComponent } from './account/account.component';
-import { AccountCreateComponent } from './account-create/account-create.component';
-import { AccountDetailComponent } from './account-detail/account-detail.component';
-import { AccountEditComponent } from './account-edit/account-edit.component';
-import { IndexComponent } from './index/index.component';
-
-const appRoutes: Routes = [
-  {
-    path: 'transactions',
-    component: TransactionComponent,
-    data: { title: 'Transaction List' }
-  },
-  {
-    path: 'transaction-details/:id',
-    component: TransactionDetailComponent,
-    data: { title: 'Transaction Details' }
-  },
-  {
-    path: 'transaction-create',
-    component: TransactionCreateComponent,
-    data: { title: 'Create Transaction' }
-  },
-  {
-    path: 'transaction-edit/:id',
-    component: TransactionEditComponent,
-    data: { title: 'Edit Transaction' }
-  },
-  {
-    path: 'accounts',
-    component: AccountComponent,
-    data: { title: 'Account List' }
-  },
-  {
-    path: 'account-details/:id',
-    component: AccountDetailComponent,
-    data: { title: 'Account Details' }
-  },
-  {
-    path: 'account-create',
-    component: AccountCreateComponent,
-    data: { title: 'Create Account' }
-  },
-  {
-    path: 'account-edit/:id',
-    component: AccountEditComponent,
-    data: { title: 'Edit Account' }
-  },
-  {
-    path: '',
-    component: IndexComponent,
-    data: { title: 'Home' }
-    // redirectTo: '/index',
-    // pathMatch: 'full'
-  }
-];
+  // import { RouterModule, Routes } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,11 +35,11 @@ const appRoutes: Routes = [
     AccountComponent,
     AccountCreateComponent,
     AccountDetailComponent,
-    AccountEditComponent,
-    IndexComponent
+    AccountEditComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    // RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
