@@ -17,11 +17,10 @@ import { AccountEditComponent } from './account-edit/account-edit.component';
 import { HomeComponent } from './home/home.component';
 import {
   MatListModule,
+  MatDatepickerModule,
   MatSelectModule,
   MatInputModule,
- // MatPaginatorModule,
- // MatProgressSpinnerModule,
-//  MatSortModule,
+  MatNativeDateModule,
   MatTableModule,
   MatIconModule,
   MatButtonModule,
@@ -44,6 +43,7 @@ import {
   imports: [
     MatListModule,
     MatSelectModule,
+    MatDatepickerModule,
     AppRoutingModule,
     BrowserModule,
     FormsModule,
@@ -52,14 +52,12 @@ import {
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,
-   // MatPaginatorModule,
-  //  MatSortModule,
-  //  MatProgressSpinnerModule,
+    MatNativeDateModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    UiModule
+    UiModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

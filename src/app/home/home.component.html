@@ -1,33 +1,24 @@
-<p>
-    This is bullshit
-</p>
-<form class="example-form">
-<table>
-<tr><td>
-<mat-form-field class="example-full-width"> 
-    <mat-select placeholder="Person" [(ngModel)]="selectedValue" name="person">
-      <mat-option *ngFor="let person of persons" [value]="person.value">
-        {{person.viewValue}}
-      </mat-option>
-    </mat-select>
-</mat-form-field> 
-</td></tr>
-<tr><td>
-<mat-form-field class="example-full-width"> 
-      <input matInput placeholder="From Date" [formControl]="fromDateFormControl"
-             [errorStateMatcher]="matcher">
-      <mat-hint>Errors appear instantly!</mat-hint>
-      <mat-error *ngIf="fromDateFormControl.hasError('date') && !fromDateFormControl.hasError('required')">
-        Please enter a valid date
-      </mat-error>
-      <mat-error *ngIf="fromDateFormControl.hasError('required')">
-        Date is <strong>required</strong>
-      </mat-error>
-</mat-form-field>
-</td></tr>
-<tr><td>
-    <button type="submit" [disabled]="!transactionForm.valid" mat-raised-button color="primary"><mat-icon>Submit</mat-icon></button> 
-</td></tr>
-</table>
+
+<form >
+    <div class="example-container">
+       <mat-form-field > 
+            <mat-select placeholder="Person" [(ngModel)]="selectedValue" name="person">
+              <mat-option *ngFor="let person of persons" [value]="person.value">
+                {{person.viewValue}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field> 
+        <mat-form-field>
+            <input matInput [matDatepicker]="fromDate" placeholder="From Date">
+            <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+            <mat-datepicker #fromDate></mat-datepicker>
+          </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="toDate" placeholder="To Date">
+            <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+            <mat-datepicker #toDate></mat-datepicker>
+          </mat-form-field>
+ <button type="submit" mat-raised-button color="primary">Submit</button> 
+      </div>
 </form> 
 
