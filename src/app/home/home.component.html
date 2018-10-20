@@ -1,23 +1,23 @@
 
-<form >
+<form [formGroup]="transactionForm" (ngSubmit)="ontransactionSubmit()">
     <div class="example-container">
        <mat-form-field > 
-            <mat-select placeholder="Person" [(ngModel)]="selectedValue" name="person">
+            <mat-select placeholder="Person" [(ngModel)]="selectedValue" name="person" formControlName="person">
               <mat-option *ngFor="let person of persons" [value]="person.value">
                 {{person.viewValue}}
               </mat-option>
             </mat-select>
         </mat-form-field> 
         <mat-form-field>
-            <input matInput [matDatepicker]="fromDate" placeholder="From Date">
+            <input matInput [matDatepicker]="fromDate" placeholder="From Date" formControlName="fromDate">
             <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
             <mat-datepicker #fromDate></mat-datepicker>
           </mat-form-field>
         <mat-form-field>
-            <input matInput [matDatepicker]="toDate" placeholder="To Date">
+            <input matInput [matDatepicker]="toDate" placeholder="To Date" formControlName="toDate">
             <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
             <mat-datepicker #toDate></mat-datepicker>
-          </mat-form-field>
+        </mat-form-field>
  <button type="submit" mat-raised-button color="primary">Submit</button> 
       </div>
 </form> 
