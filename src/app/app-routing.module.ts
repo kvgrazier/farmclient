@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   // {path: '', redirectTo: '/transactions', pathMatch: 'full'},
   {path: '', component: HomeComponent, data: { title: 'Home' }},
-  {path: 'transactions', component: TransactionComponent, data: { title: 'Transaction List' }},
+  {path: 'transactions/:person/:fromDate/:toDate', component: TransactionComponent, data: { title: 'Transaction List' }},
   {path: 'transaction-details/:id', component: TransactionDetailComponent, data: { title: 'Transaction Details' }},
   {path: 'transaction-create', component: TransactionCreateComponent, data: { title: 'Create Transaction' }},
   {path: 'transaction-edit/:id', component: TransactionEditComponent, data: { title: 'Edit Transaction' }},
