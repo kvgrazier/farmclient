@@ -49,6 +49,12 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+  getTas(person: string, fromDate: Date, toDate: Date): Observable<any> {
+    const url = `${API_URL}/ta/${person}/${fromDate}/${toDate}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
   getTransactions(): Observable<any> {
     console.log(API_URL);
     return this.http.get(API_URL + '/transaction', httpOptions).pipe(

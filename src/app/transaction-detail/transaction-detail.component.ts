@@ -26,7 +26,6 @@ export class TransactionDetailComponent implements OnInit {
         }
       );
   }
- // constructor(private route: ActivatedRoute, private api: ApiService) { }
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
   ngOnInit() {
     this.getTransactionDetails(this.route.snapshot.params['id']);

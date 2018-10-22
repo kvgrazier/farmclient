@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction',
@@ -13,11 +14,13 @@ export class TransactionComponent implements OnInit {
 
   transactions: any;
   displayedColumns = ['TransactionID', 'TransactionDate', 'TransactionDescription', 'AccountNumber', 'AccountAmount'];
-  dataSource = new TransactionDataSource(this.api);
-  constructor(private api: ApiService) { }
+  dataSource = new TransactionDataSource(this.route, this.api);
+  constructor(private route: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getTransactions()
+    this.api.getTas(this.route.snapshot.params['person'],
+    this.route.snapshot.params['fromDate'],
+    this.route.snapshot.params['toDate'])
       .subscribe(res => {
         console.log(res);
         this.transactions = res;
@@ -25,15 +28,16 @@ export class TransactionComponent implements OnInit {
         console.log(err);
       });
   }
-
 }
 
 export class TransactionDataSource extends DataSource<any> {
-  constructor(private api: ApiService) {
+  constructor(private route: ActivatedRoute, private api: ApiService) {
     super();
   }
   connect() {
-    return this.api.getTransactions();
+    return this.api.getTas(this.route.snapshot.params['person'],
+    this.route.snapshot.params['fromDate'],
+    this.route.snapshot.params['toDate']);
   }
   disconnect() {
   }
