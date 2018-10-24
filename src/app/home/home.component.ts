@@ -3,7 +3,7 @@ import { ApiService } from '../api.service';
 import { DataSource } from '@angular/cdk/collections';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras} from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -37,11 +37,14 @@ export class HomeComponent implements OnInit {
       });
     }
     ontransactionSubmit() {
-      let person = this.transactionForm.controls.person.value;
-      console.log(person);
+      let Person = this.transactionForm.controls.person.value;
       let fromDate = new DatePipe('en-US').transform(this.transactionForm.controls.fromDate.value, 'MM-dd-yyyy');
       let toDate = new DatePipe('en-US').transform(this.transactionForm.controls.toDate.value, 'MM-dd-yyyy');
-      this.router.navigate(['transactions', person, fromDate, toDate]);
+      let navigationExtras: NavigationExtras = {
+        queryParams: { person: Person, fromdate: fromDate, todate: toDate }
+      };
+      this.router.navigate(['transactions'],navigationExtras);
+    //  this.router.navigate(['transactions', person, fromDate, toDate]);
     }
   }
 export class PersonsDataSource extends DataSource<any> {

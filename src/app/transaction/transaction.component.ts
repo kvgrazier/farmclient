@@ -18,9 +18,12 @@ export class TransactionComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getTas(this.route.snapshot.params['person'],
-    this.route.snapshot.params['fromDate'],
-    this.route.snapshot.params['toDate'])
+    let Person = this.route.snapshot.queryParams.person;
+    let fromDate = this.route.snapshot.queryParams.fromdate;
+    this.api.getTas(
+      this.route.snapshot.queryParams.person,
+      this.route.snapshot.queryParams.fromdate,
+      this.route.snapshot.queryParams.todate)
       .subscribe(res => {
         console.log(res);
         this.transactions = res;
@@ -35,9 +38,10 @@ export class TransactionDataSource extends DataSource<any> {
     super();
   }
   connect() {
-    return this.api.getTas(this.route.snapshot.params['person'],
-    this.route.snapshot.params['fromDate'],
-    this.route.snapshot.params['toDate']);
+    return this.api.getTas(
+      this.route.snapshot.queryParams.person,
+      this.route.snapshot.queryParams.fromdate,
+      this.route.snapshot.queryParams.todate);
   }
   disconnect() {
   }
