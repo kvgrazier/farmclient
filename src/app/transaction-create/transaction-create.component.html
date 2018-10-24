@@ -1,5 +1,5 @@
 <div class="button-row">
-    <a [routerLink]="['/transactions']" >Transaction List</a>
+    <a [routerLink]="['/transactions']" queryParamsHandling="preserve">Transaction List</a>
   </div>
 <form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
   <mat-form-field class="example-full-width">

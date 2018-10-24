@@ -20,7 +20,7 @@ export class TransactionDetailComponent implements OnInit {
   deleteTransaction(id) {
     this.api.deleteTransaction(id)
       .subscribe(res => {
-          this.router.navigate(['/transactions']);
+          this.router.navigate(['/transactions'], { queryParamsHandling: 'preserve' });
         }, (err) => {
           console.log(err);
         }

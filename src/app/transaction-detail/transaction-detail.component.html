@@ -1,5 +1,5 @@
 <div class="button-row">
-    <a [routerLink]="['/transactions']" >Transaction List</a>
+    <a [routerLink]="['/transactions']" queryParamsHandling="merge">Transaction List</a>
 </div>
 <mat-card class="example-card">
   <mat-card-content>
@@ -17,7 +17,7 @@
     </dl>
   </mat-card-content>
   <mat-card-actions>
-  <a [routerLink]="['/transaction-edit', transaction._id]" style="padding: 0 0 0 1em;" >Edit</a>
-  <a [routerLink]="" (click)="deleteTransaction(transaction._id)" style="padding: 0 1em 0 1em;" >Delete</a>
+  <a [routerLink]="['/transaction-edit', transaction._id]" queryParamsHandling="merge" style="padding: 0 0 0 1em;" >Edit</a>
+  <a [routerLink]="" queryParamsHandling="merge" (click)="deleteTransaction(transaction._id)" style="padding: 0 1em 0 1em;" >Delete</a>
 </mat-card-actions>
 </mat-card>

@@ -34,7 +34,8 @@ export class TransactionCreateComponent implements OnInit {
       .subscribe(res => {
         // const id = res['_id'];
           let id = res['_id'];
-          this.router.navigate(['/transaction-details', id]);
+          // this.router.navigate(['/users'], { queryParamsHandling: 'preserve' });
+          this.router.navigate(['/transaction-details', id], { queryParamsHandling: 'preserve' });
         }, (err) => {
           console.log(err);
         });
