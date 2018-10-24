@@ -1,5 +1,5 @@
 <div class="button-row">
-    <a [routerLink]="" (click)="transactionDetails()">Transaction Details</a>
+    <a [routerLink]="" queryParamsHandling="merge" (click)="transactionDetails()">Transaction Details</a>
   </div>
 <form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
   <mat-form-field class="example-full-width">

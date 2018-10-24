@@ -46,14 +46,14 @@ export class TransactionEditComponent implements OnInit {
    this.api.updateTransaction(this.id, form)
       .subscribe(res => {
           let id = res['_id'];
-          this.router.navigate(['/transaction-details', id]);
+          this.router.navigate(['/transaction-details', id], { queryParamsHandling:'merge'});
         }, (err) => {
           console.log(err);
         }
       );
   }
   transactionDetails() {
-    this.router.navigate(['/transaction-details', this.id]);
+    this.router.navigate(['/transaction-details', this.id],{ queryParamsHandling: 'preserve' });
   }
 
 }
