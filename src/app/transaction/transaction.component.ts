@@ -13,7 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TransactionComponent implements OnInit {
 
   transactions: any;
-  displayedColumns = ['TransactionID', 'TransactionDate', 'TransactionDescription', 'AccountNumber', 'AccountAmount'];
+  displayedColumns = ['TransactionID', 'TransactionDate', 'TransactionDescription',
+  'AccountNumber', 'AccountAmount','AccountName','Person'];
   dataSource = new TransactionDataSource(this.route, this.api);
   constructor(private route: ActivatedRoute, private api: ApiService) { }
 
