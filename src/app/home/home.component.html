@@ -2,7 +2,7 @@
 <form [formGroup]="transactionForm" (ngSubmit)="ontransactionSubmit()">
     <div class="example-container">
        <mat-form-field > 
-            <mat-select placeholder="Person" [(ngModel)]="selectedValue" name="person" formControlName="person">
+            <mat-select placeholder="Person" formControlName="person">
               <mat-option *ngFor="let person of persons" [value]="person.value">
                 {{person.viewValue}}
               </mat-option>

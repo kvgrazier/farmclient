@@ -24,11 +24,16 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="AccountNumber" formControlName="AccountNumber"
+      <mat-select placeholder="AccountNumber" formControlName="AccountNumber">
+          <mat-option *ngFor="let account of accounts" [value]="account.AccountNumber">
+            {{account.AccountDescription}}
+          </mat-option>
+        </mat-select>
+<!--     <textarea matInput placeholder="AccountNumber" formControlName="AccountNumber"
            [errorStateMatcher]="matcher"></textarea>
     <mat-error>
       <span *ngIf="!transactionForm.get('AccountNumber').valid && transactionForm.get('AccountNumber').touched">Please enter Account Number</span>
-    </mat-error>
+    </mat-error> -->
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="AccountAmount" formControlName="AccountAmount"

@@ -49,6 +49,12 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+  getAccountList(): Observable<any> {
+    console.log(API_URL);
+    return this.http.get(API_URL + '/accountlist', httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
   getTas(person: string, fromdate: Date, todate: Date): Observable<any> {
     const url = `${API_URL}/ta?person=${person}&fromdate=${fromdate}&todate=${todate}`;
    // const url = `${API_URL}/ta/${person}/${fromDate}/${toDate}`;

@@ -3,25 +3,30 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-
+export class Account {
+  AccountNumber: number;
+  AccountDescription: string;
+}
 @Component({
   selector: 'app-transaction-edit',
   templateUrl: './transaction-edit.component.html',
   styleUrls: ['./transaction-edit.component.css']
 })
 export class TransactionEditComponent implements OnInit {
+  accounts:  Account[];
   transactionForm: FormGroup;
   id: string = '';
-  TransactionID: number = null;
+ /*  TransactionID: number = null;
   TransactionDate: Date = null;
   TransactionDescription: string = '';
   AccountNumber: number = null;
-  AccountAmount: number = null;
-
-  constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
+  AccountAmount: number = null; */
+  constructor(private router: Router, private route: ActivatedRoute,
+    private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getTransaction(this.route.snapshot.params['id']);
+    this.api.getAccountList()
+    .subscribe(res => this.accounts = res);
     this.transactionForm = this.formBuilder.group({
       'TransactionID' : [null, Validators.required],
       'TransactionDate' : [null, Validators.required],
@@ -29,7 +34,9 @@ export class TransactionEditComponent implements OnInit {
       'AccountNumber' : [null, Validators.required],
       'AccountAmount' : [null, Validators.required]
     });
+    this.getTransaction(this.route.snapshot.params['id']);
   }
+
   getTransaction(id) {
     this.api.getTransaction(id).subscribe(data => {
       this.id = data._id;
