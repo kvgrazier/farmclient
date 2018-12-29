@@ -2,20 +2,25 @@
     <a [routerLink]="['/transactions']" queryParamsHandling="preserve">Transaction List</a>
   </div>
 <form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
-  <mat-form-field class="example-full-width">
+<!--   <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionID" formControlName="TransactionID"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!transactionForm.get('TransactionID').valid && transactionForm.get('TransactionID').touched">Please enter TransactionID</span>
     </mat-error>
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="TransactionDate" placeholder="TransactionDate" formControlName="TransactionDate">
+    <mat-datepicker-toggle matSuffix [for]="TransactionDate"></mat-datepicker-toggle>
+    <mat-datepicker #TransactionDate></mat-datepicker>
+  </mat-form-field>
+  <!-- <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionDate" formControlName="TransactionDate"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!transactionForm.get('TransactionDate').valid && transactionForm.get('TransactionDate').touched">Please enter TransactionDate</span>
     </mat-error>
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionDescription" formControlName="TransactionDescription"
            [errorStateMatcher]="matcher">
@@ -24,12 +29,12 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="AccountNumber" formControlName="AccountNumber"
-           [errorStateMatcher]="matcher">
-    <mat-error>
-      <span *ngIf="!transactionForm.get('AccountNumber').valid && transactionForm.get('AccountNumber').touched">Please enter Account Number</span>
-    </mat-error>
-  </mat-form-field>
+    <mat-select placeholder="AccountNumber" formControlName="AccountNumber">
+        <mat-option *ngFor="let account of accounts" [value]="account.AccountNumber">
+          {{account.AccountDescription}}
+        </mat-option>
+      </mat-select>
+</mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="AccountAmount" formControlName="AccountAmount"
            [errorStateMatcher]="matcher">

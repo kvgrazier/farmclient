@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
+export class Account {
+  AccountNumber: number;
+  AccountDescription: string;
+}
 @Component({
   selector: 'app-transaction-create',
   templateUrl: './transaction-create.component.html',
@@ -10,22 +14,20 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 })
 
 export class TransactionCreateComponent implements OnInit {
+  accounts:  Account[];
   transactionForm: FormGroup;
-  TransactionID: Number = null;
-  TransactionDate: Date = null;
-  TransactionDescription: String = '';
-  AccountNumber: Number = null;
-  AccountAmount: Number = null;
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.api.getAccountList()
+    .subscribe(res => this.accounts = res);
     this.transactionForm = this.formBuilder.group({
-      'TransactionID' : [null, Validators.required],
-      'TransactionDate' : [null, Validators.required],
-      'TransactionDescription' : [null, Validators.required],
-      'AccountNumber' : [null, Validators.required],
-      'AccountAmount' : [null, Validators.required]
+//      TransactionID : [null, Validators.required],
+      TransactionDate : [null, Validators.required],
+      TransactionDescription : [null, Validators.required],
+      AccountNumber : [null, Validators.required],
+      AccountAmount : [null, Validators.required]
     });
   }
 

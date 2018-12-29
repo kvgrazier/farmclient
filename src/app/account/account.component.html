@@ -1,3 +1,40 @@
-<p>
-  account works!
-</p>
+<div class="button-row">
+  <a [routerLink]="['/transaction-create']" queryParamsHandling="merge">Create </a>
+</div>
+<table mat-table #table [dataSource]="dataSource" class="table">
+
+  <ng-container matColumnDef="TransactionID">
+    <th mat-header-cell *matHeaderCellDef> TranID </th>
+    <td mat-cell *matCellDef="let element" class="isbn-col"> {{element.TransactionID}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TransactionDate">
+    <th mat-header-cell *matHeaderCellDef> TranDate </th>
+    <td mat-cell *matCellDef="let element"> {{element.TransactionDate | date:'MM-dd-yyyy'}}  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TransactionDescription">
+    <th mat-header-cell *matHeaderCellDef> TranDesc</th>
+    <td mat-cell *matCellDef="let element"> {{element.TransactionDescription}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="AccountNumber">
+    <th mat-header-cell *matHeaderCellDef> AcctNum </th>
+    <td mat-cell *matCellDef="let element"> {{element.AccountNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="AccountAmount">
+    <th mat-header-cell *matHeaderCellDef> AcctAmt </th>
+    <td mat-cell *matCellDef="let element"> {{element.AccountAmount}} </td>
+  </ng-container>
+  <ng-container matColumnDef="AccountName">
+    <th mat-header-cell *matHeaderCellDef> AcctName </th>
+    <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Person">
+    <th mat-header-cell *matHeaderCellDef> Person</th>
+    <td mat-cell *matCellDef="let element"> {{element.Person}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/transaction-details/', row._id]" queryParamsHandling="merge"></tr>
+</table>

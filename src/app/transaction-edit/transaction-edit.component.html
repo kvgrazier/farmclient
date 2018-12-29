@@ -3,19 +3,20 @@
   </div>
 <form [formGroup]="transactionForm" (ngSubmit)="onFormSubmit(transactionForm.value)">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="TransactionID" formControlName="TransactionID"
-           [errorStateMatcher]="matcher">
-    <mat-error>
-      <span *ngIf="!transactionForm.get('TransactionID').valid && transactionForm.get('TransactionID').touched">Please enter TransactionID</span>
-    </mat-error>
+    <input matInput placeholder="TransactionID" formControlName="TransactionID" readonly="true">
   </mat-form-field>
   <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="TransactionDate" placeholder="TransactionDate" formControlName="TransactionDate">
+    <mat-datepicker-toggle matSuffix [for]="TransactionDate"></mat-datepicker-toggle>
+    <mat-datepicker #TransactionDate></mat-datepicker>
+  </mat-form-field>
+<!--   <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionDate" formControlName="TransactionDate"
            [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!transactionForm.get('TransactionDate').valid && transactionForm.get('TransactionDate').touched">Please enter TransactionDate</span>
     </mat-error>
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-form-field class="example-full-width">
     <input matInput placeholder="TransactionDescription" formControlName="TransactionDescription"
            [errorStateMatcher]="matcher">

@@ -16,11 +16,7 @@ export class TransactionEditComponent implements OnInit {
   accounts:  Account[];
   transactionForm: FormGroup;
   id: string = '';
- /*  TransactionID: number = null;
-  TransactionDate: Date = null;
-  TransactionDescription: string = '';
-  AccountNumber: number = null;
-  AccountAmount: number = null; */
+
   constructor(private router: Router, private route: ActivatedRoute,
     private api: ApiService, private formBuilder: FormBuilder) { }
 
@@ -28,11 +24,11 @@ export class TransactionEditComponent implements OnInit {
     this.api.getAccountList()
     .subscribe(res => this.accounts = res);
     this.transactionForm = this.formBuilder.group({
-      'TransactionID' : [null, Validators.required],
-      'TransactionDate' : [null, Validators.required],
-      'TransactionDescription' : [null, Validators.required],
-      'AccountNumber' : [null, Validators.required],
-      'AccountAmount' : [null, Validators.required]
+      TransactionID : [null, Validators.required],
+      TransactionDate : [null, Validators.required],
+      TransactionDescription : [null, Validators.required],
+      AccountNumber : [null, Validators.required],
+      AccountAmount : [null, Validators.required]
     });
     this.getTransaction(this.route.snapshot.params['id']);
   }
@@ -42,7 +38,8 @@ export class TransactionEditComponent implements OnInit {
       this.id = data._id;
       this.transactionForm.setValue({
         TransactionID: data.TransactionID,
-        TransactionDate: new DatePipe('en-US').transform(data.TransactionDate, 'MM-dd-yyyy'),
+        TransactionDate: data.TransactionDate,
+        // TransactionDate: new DatePipe('en-US').transform(data.TransactionDate, 'MM-dd-yyyy'),
         TransactionDescription: data.TransactionDescription,
         AccountNumber: data.AccountNumber,
         AccountAmount: data.AccountAmount
