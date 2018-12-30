@@ -4,8 +4,7 @@ import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-transaction-detail',
-  templateUrl: './transaction-detail.component.html',
-  styleUrls: ['./transaction-detail.component.css']
+  templateUrl: './transaction-detail.component.html'
 })
 export class TransactionDetailComponent implements OnInit {
 

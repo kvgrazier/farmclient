@@ -1,7 +1,27 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
 
 
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-full-width:nth-last-child() {
+    margin-bottom: 10px;
+  }
+  
+  .button-row {
+    margin: 10px 0;
+  }
+  .example-card {
+    max-width: 500px;
+  }
+  
 

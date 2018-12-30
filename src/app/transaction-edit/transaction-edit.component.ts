@@ -9,8 +9,7 @@ export class Account {
 }
 @Component({
   selector: 'app-transaction-edit',
-  templateUrl: './transaction-edit.component.html',
-  styleUrls: ['./transaction-edit.component.css']
+  templateUrl: './transaction-edit.component.html'
 })
 export class TransactionEditComponent implements OnInit {
   accounts:  Account[];

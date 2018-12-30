@@ -1,3 +1,30 @@
-<p>
-  account-detail works!
-</p>
+<div class="button-row">
+  <a [routerLink]="['/accounts']" queryParamsHandling="merge">Account List</a>
+</div>
+<mat-card class="example-card">
+<mat-card-content>
+  <dl>
+    <dt>AccountNumber:</dt>
+    <dd>{{account.AccountNumber}}</dd>
+    <dt>AccountName:</dt>
+    <dd>{{account.AccountName}}</dd>
+    <dt>TaxFormRef:</dt>
+    <dd>{{account.TaxFormRef}}</dd>
+    <dt>Active:</dt>
+    <dd>{{account.Active}}</dd>
+    <dt>Person:</dt>
+    <dd>{{account.AccountPerson.AccountPersonName}}</dd>
+    <dt>AcctSubType:</dt>
+    <dd>{{account.AccountSubType.AccountSubTypeName}}</dd>
+    <dt>SortOrder:</dt>
+    <dd>{{account.AccountSubType.SortOrder}}</dd>
+    <dt>AcctType:</dt>
+    <dd>{{account.AccountSubType.AccountType.AccountTypeName}}</dd>
+  </dl>
+</mat-card-content>
+<mat-card-actions>
+<a [routerLink]="['/account-edit', account._id]" queryParamsHandling="merge" style="padding: 0 0 0 1em;" >Edit</a>
+<a [routerLink]="" queryParamsHandling="merge" (click)="deleteAccount(account._id)" style="padding: 0 1em 0 1em;" >Delete</a>
+</mat-card-actions>
+</mat-card>
+

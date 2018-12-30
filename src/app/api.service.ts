@@ -94,7 +94,38 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
-
+  getAccounts(): Observable<any> {
+    console.log(API_URL);
+    return this.http.get(API_URL + '/account', httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  getAccount(id: string): Observable<any> {
+    const url = `${API_URL}/account/${id}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  postAccount(data): Observable<any> {
+    return this.http.post(API_URL + '/account', data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  updateAccount(id: string, data): Observable<any> {
+    const url = `${API_URL}/account/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  deleteAccount(id: string): Observable<{}> {
+    const url = `${API_URL}/account/${id}`;
+    return this.http.delete(url, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
 }
 
