@@ -26,32 +26,32 @@
     </mat-error>
 </mat-form-field>
 <mat-form-field class="example-full-width">
-      <mat-select placeholder="AccountPersonName" formControlName="AccountPersonName">
+      <mat-select placeholder="AccountPersonName" formControlName="AccountPerson.AccountPersonName">
           <mat-option value="Allen">Allen</mat-option>
           <mat-option value="Mark">Mark</mat-option>
           <mat-option value="Mike">Mike</mat-option>
       </mat-select>
 </mat-form-field>
-<!-- <mat-form-field class="example-full-width">
+<mat-form-field class="example-full-width">
     <input matInput placeholder="AccountSubType" formControlName="AccountSubType.AccountSubTypeName"
-           [errorStateMatcher]="matcher">
-    <mat-error>
-      <span *ngIf="!accountForm.get('AccountSubType.AccountSubTypeName').valid && accountForm.get('AccountSubType.AccountSubTypeName').touched">Please enter AccountSubType</span>
-    </mat-error>
+            [errorStateMatcher]="matcher"> 
+     <!-- <mat-error>
+      <span *ngIf="!accountForm.get(AccountSubTypeName).valid && accountForm.get(AccountSubTypeName).touched">Please enter AccountSubType</span>
+    </mat-error>  -->
+</mat-form-field> 
+<mat-form-field class="example-full-width">
+    <input matInput placeholder="Sort Order"  formControlName="AccountSubType.SortOrder">
+           <!-- [errorStateMatcher]="matcher"> -->
+<!--     <mat-error>
+      <span *ngIf="!accountForm.get(SortOrder).valid && accountForm.get(SortOrder).touched">Please enter SortOrder</span>
+    </mat-error> -->
 </mat-form-field>
 <mat-form-field class="example-full-width">
-    <input matInput placeholder="AccountSubType.SortOrder" formControlName="AccountSubType.SortOrder"
-           [errorStateMatcher]="matcher">
-    <mat-error>
-      <span *ngIf="!accountForm.get('AccountSubType.SortOrder').valid && accountForm.get('AccountSubType.SortOrder').touched">Please enter SortOrder</span>
-    </mat-error>
-</mat-form-field>
-<mat-form-field class="example-full-width">
-    <mat-select placeholder="AccountSubType.AccountType.AccountTypeName" formControlName="AccountSubType.AccountType.AccountTypeName">
+    <mat-select placeholder="Account Type" formControlName="AccountSubType.AccountType.AccountTypeName">
     <mat-option value="Expenses">Expenses</mat-option>
     <mat-option value="Revenue">Revenue</mat-option>
     </mat-select>
-</mat-form-field> -->
+</mat-form-field> 
 <div class="button-row">
     <button type="submit" [disabled]="!accountForm.valid" class="btn btn-success">Submit</button>
 </div>

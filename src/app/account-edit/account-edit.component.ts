@@ -16,14 +16,14 @@ export class AccountEditComponent implements OnInit {
 
   ngOnInit() {
     this.accountForm = this.formBuilder.group({
-      AccountNumber : [null, Validators.required],
+      AccountNumber : [null],
       AccountName : [null, Validators.required],
       TaxFormRef : [null, Validators.required]
-       ,Active : [null, Validators.required]
-       ,AccountPersonName : [null]
-      // ,'AccountSubType.AccountSubTypeName' : [null, Validators.required]
-      // ,'AccountSubType.SortOrder' : [null, Validators.required]
-      // ,'AccountSubType.AccountType.AccountTypeName' : [null]
+      ,Active : [null, Validators.required]
+      ,'AccountPerson.AccountPersonName' : []
+      ,'AccountSubType.AccountSubTypeName' : [null, Validators.required]
+      ,'AccountSubType.SortOrder' : [null, Validators.required]
+      ,'AccountSubType.AccountType.AccountTypeName' : [null]
     });
     this.getAccount(this.route.snapshot.params['id']);
   }
@@ -36,10 +36,10 @@ export class AccountEditComponent implements OnInit {
         AccountName: data.AccountName,
         TaxFormRef: data.TaxFormRef
         ,Active: data.Active
-/*         ,AccountPersonName: data.AccountPerson.AccountPersonName,
-        ,'AccountSubType.AccountSubTypeName': data.AccountSubType.AccountSubTypeName,
-        ,'AccountSubType.SortOrder': data.AccountSubType.SortOrder,
-        ,'AccountSubType.AccountType.AccountTypeName': data.AccountSubType.AccountType.AccountTypeName  */
+        ,'AccountPerson.AccountPersonName': data.AccountPerson.AccountPersonName
+        ,'AccountSubType.AccountSubTypeName': data.AccountSubType.AccountSubTypeName
+        ,'AccountSubType.SortOrder': data.AccountSubType.SortOrder
+        ,'AccountSubType.AccountType.AccountTypeName': data.AccountSubType.AccountType.AccountTypeName
       });
     });
   }
