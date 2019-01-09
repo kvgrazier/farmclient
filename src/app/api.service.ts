@@ -30,11 +30,10 @@ export class ApiService {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError('Something bad happened; please try again later.');
+    return throwError(error.error.message);
   }
 
   private extractData(res: Response) {
-    // const body = res;
      let body = res;
     return body || { };
   }
@@ -45,6 +44,7 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+
   getTas(person: string, fromdate: Date, todate: Date): Observable<any> {
     const url = `${API_URL}/ta?person=${person}&fromdate=${fromdate}&todate=${todate}`;
     return this.http.get(url, httpOptions).pipe(
