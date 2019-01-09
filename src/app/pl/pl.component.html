@@ -1,0 +1,42 @@
+<div class="button-row">
+ 
+</div>
+<table mat-table #table [dataSource]="dataSource" class="table">
+
+  <ng-container matColumnDef="AccountType">
+    <th mat-header-cell *matHeaderCellDef> AccountType </th>
+    <td mat-cell *matCellDef="let element" class="isbn-col"> {{element.AccountType}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="AccountSubType">
+    <th mat-header-cell *matHeaderCellDef> AccountSubType </th>
+    <td mat-cell *matCellDef="let element"> {{element.AccountSubType}}  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="AccountNumber">
+    <th mat-header-cell *matHeaderCellDef> AcctNum </th>
+    <td mat-cell *matCellDef="let element"> {{element.AccountNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="AccountName">
+    <th mat-header-cell *matHeaderCellDef> AcctName </th>
+    <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Amount">
+    <th mat-header-cell *matHeaderCellDef> Amount </th>
+    <td mat-cell *matCellDef="let element"> {{element.Amount | currency}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Person">
+    <th mat-header-cell *matHeaderCellDef> Person</th>
+    <td mat-cell *matCellDef="let element"> {{element.Person}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="SortOrder">
+    <th mat-header-cell *matHeaderCellDef> SortOrder</th>
+    <td mat-cell *matCellDef="let element"> {{element.SortOrder}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+</table>

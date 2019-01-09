@@ -9,11 +9,12 @@ import { AccountCreateComponent } from './account-create/account-create.componen
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountEditComponent } from './account-edit/account-edit.component';
 import { HomeComponent } from './home/home.component';
+import { PLComponent } from './pl/pl.component';
 
 const appRoutes: Routes = [
-  // {path: '', redirectTo: '/transactions', pathMatch: 'full'},
   {path: '', component: HomeComponent, data: { title: 'Home' }},
-  // {path: 'transactions/:person/:fromDate/:toDate', component: TransactionComponent, data: { title: 'Transaction List' }},
+  {path: 'pl', component: PLComponent, data: { title: 'Profit and Loss' }},
+ // {path: 'pl/:person/:fromDate/:toDate', component: PLComponent, data: { title: 'Profit and Loss' }},
   {path: 'transactions', component: TransactionComponent, data: { title: 'Transaction List' }},
   {path: 'transaction-details/:id', component: TransactionDetailComponent, data: { title: 'Transaction Details' }},
   {path: 'transaction-create', component: TransactionCreateComponent, data: { title: 'Create Transaction' }},

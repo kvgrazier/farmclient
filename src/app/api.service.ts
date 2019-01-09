@@ -39,8 +39,17 @@ export class ApiService {
     return body || { };
   }
 
-  getTest(): string {
-    return 'Test';
+  getPL(person: string, fromdate: Date, todate: Date): Observable<any> {
+    const url = `${API_URL}/pl?person=${person}&fromdate=${fromdate}&todate=${todate}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  getTas(person: string, fromdate: Date, todate: Date): Observable<any> {
+    const url = `${API_URL}/ta?person=${person}&fromdate=${fromdate}&todate=${todate}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
   }
 
   getPersonList(): Observable<any> {
@@ -55,19 +64,12 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
-  getTas(person: string, fromdate: Date, todate: Date): Observable<any> {
-    const url = `${API_URL}/ta?person=${person}&fromdate=${fromdate}&todate=${todate}`;
-   // const url = `${API_URL}/ta/${person}/${fromDate}/${toDate}`;
-    return this.http.get(url, httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleError));
-  }
-  getTransactions(): Observable<any> {
+/*   getTransactions(): Observable<any> {
     console.log(API_URL);
     return this.http.get(API_URL + '/transaction', httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
-  }
+  } */
   getTransaction(id: string): Observable<any> {
     const url = `${API_URL}/transaction/${id}`;
     return this.http.get(url, httpOptions).pipe(

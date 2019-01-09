@@ -1,0 +1,23 @@
+<form [formGroup]="plForm" (ngSubmit)="onplSubmit()">
+  <div class="example-container">
+        <mat-form-field>
+            <mat-select placeholder="Person" formControlName="plperson">
+                <mat-option value="Allen">Allen</mat-option>
+                <mat-option value="Mark">Mark</mat-option>
+                <mat-option value="Mike">Mike</mat-option>
+            </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput [matDatepicker]="fromDate" placeholder="From Date" formControlName="plfromDate">
+          <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+          <mat-datepicker #fromDate></mat-datepicker>
+        </mat-form-field>
+      <mat-form-field>
+          <input matInput [matDatepicker]="toDate" placeholder="To Date" formControlName="pltoDate">
+          <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+          <mat-datepicker #toDate></mat-datepicker>
+      </mat-form-field>
+<button type="submit" mat-raised-button color="primary">Profit and Loss</button> 
+    </div>
+</form>
+

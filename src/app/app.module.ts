@@ -26,6 +26,9 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from '@angular/material';
+import { PLComponent } from './pl/pl.component';
+import { TransactionControlComponent } from './transaction-control/transaction-control.component';
+import { PlControlComponent } from './pl-control/pl-control.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import {
     AccountCreateComponent,
     AccountDetailComponent,
     AccountEditComponent,
-    HomeComponent
+    HomeComponent,
+    PLComponent,
+    TransactionControlComponent,
+    PlControlComponent
   ],
   imports: [
     MatListModule,
