@@ -51,7 +51,6 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
-
   getPersonList(): Observable<any> {
     console.log(API_URL);
     return this.http.get(API_URL + '/accountpersonlist', httpOptions).pipe(
@@ -64,12 +63,6 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
-/*   getTransactions(): Observable<any> {
-    console.log(API_URL);
-    return this.http.get(API_URL + '/transaction', httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleError));
-  } */
   getTransaction(id: string): Observable<any> {
     const url = `${API_URL}/transaction/${id}`;
     return this.http.get(url, httpOptions).pipe(

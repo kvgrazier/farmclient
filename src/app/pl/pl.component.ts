@@ -10,8 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PLComponent implements OnInit {
   pl: any;
-  displayedColumns = ['AccountType','AccountSubType','AccountNumber','AccountName','Amount','Person','SortOrder'];
-  dataSource = new PLDataSource(this.route, this.api);
+  displayedColumns = ['AccountType','AccountSubType','AccountNumber','AccountName','Amount'];
+  pldataSource = new PLDataSource(this.route, this.api);
   constructor(private route: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {

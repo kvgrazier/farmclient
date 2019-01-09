@@ -20,6 +20,7 @@ export class TransactionComponent implements OnInit {
   ngOnInit() {
     let Person = this.route.snapshot.queryParams.person;
     let fromDate = this.route.snapshot.queryParams.fromdate;
+    let toDate = this.route.snapshot.queryParams.todate;
     this.api.getTas(
       this.route.snapshot.queryParams.person,
       this.route.snapshot.queryParams.fromdate,

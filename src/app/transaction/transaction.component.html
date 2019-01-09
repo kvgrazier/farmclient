@@ -1,3 +1,7 @@
+<h4>Transactions</h4>
+<h5><b>Person:</b> {{this.route.snapshot.queryParams.person}} 
+  <b>Start Date:</b> {{this.route.snapshot.queryParams.fromdate}}    
+  <b>End Date:</b>  {{this.route.snapshot.queryParams.todate}} </h5>
 <div class="button-row">
     <a [routerLink]="['/transaction-create']" queryParamsHandling="merge">Create </a>
 </div>
